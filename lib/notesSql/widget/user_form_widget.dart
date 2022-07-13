@@ -34,132 +34,141 @@ class NoteFormWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+  Widget build(BuildContext context) {
+    bool isIOS = Theme.of(context).platform== TargetPlatform;
 
-              TextFormField(
-                initialValue: name,
-                decoration: const InputDecoration(
-                  label: Text('Name'),
+    return SingleChildScrollView(
+ child:      Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
 
-                  hintText: 'Enter Name',
-                  prefixIcon: Icon(
-                    Icons.notes,
-                    size: 30,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  contentPadding: EdgeInsets.all(15),
+            TextFormField(
+              initialValue: name,
+              decoration: const InputDecoration(
+                label: Text('Name'),
+
+                hintText: 'Enter Name',
+                prefixIcon: Icon(
+                  Icons.notes,
+                  size: 30,
                 ),
-                validator: (name) => name != null && name.isEmpty
-                    ? 'The name cannot be empty'
-                    : null,
-                onChanged: onChangedName,
+                fillColor: Colors.white,
+                filled: true,
+                contentPadding: EdgeInsets.all(15),
               ),
-              const SizedBox(height: 15),
-              TextFormField(
-                initialValue: age,
-                decoration: const InputDecoration(
-                  label: Text('Age'),
-                  hintText: 'Enter Age',
-                  prefixIcon: Icon(
-                    Icons.access_time,
-                    size: 30,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  contentPadding: EdgeInsets.all(15),
+              validator: (name) =>
+              name != null && name.isEmpty
+                  ? 'The name cannot be empty'
+                  : null,
+              onChanged: onChangedName,
+            ),
+            const SizedBox(height: 15),
+            TextFormField(
+              initialValue: age,
+              decoration: const InputDecoration(
+                label: Text('Age'),
+                hintText: 'Enter Age',
+                prefixIcon: Icon(
+                  Icons.access_time,
+                  size: 30,
                 ),
-                validator: (age) => age != null && age.isEmpty
-                    ? 'The age cannot be empty'
-                    : null,
-                onChanged: onChangedAge,
+                fillColor: Colors.white,
+                filled: true,
+                contentPadding: EdgeInsets.all(15),
               ),
-              const SizedBox(height: 15),
-                       TextFormField(
-                initialValue: gender,
-                decoration: const InputDecoration(
-                  label: Text('Gender'),
-                  hintText: 'Enter Gender',
-                  prefixIcon: Icon(
-                    Icons.accessibility,
-                    size: 30,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  contentPadding: EdgeInsets.all(15),
+              validator: (age) =>
+              age != null && age.isEmpty
+                  ? 'The age cannot be empty'
+                  : null,
+              onChanged: onChangedAge,
+            ),
+            const SizedBox(height: 15),
+            TextFormField(
+              initialValue: gender,
+              decoration: const InputDecoration(
+                label: Text('Gender'),
+                hintText: 'Enter Gender',
+                prefixIcon: Icon(
+                  Icons.accessibility,
+                  size: 30,
                 ),
-                validator: (gender) => gender != null && gender.isEmpty
-                    ? 'The age cannot be empty'
-                    : null,
-                onChanged: onChangedGender,
+                fillColor: Colors.white,
+                filled: true,
+                contentPadding: EdgeInsets.all(15),
               ),
-              const SizedBox(height: 15),
-              TextFormField(
-                initialValue: church,
-                decoration: const InputDecoration(
-                  label: Text('Church'),
-                  hintText: 'Enter Church',
-                  prefixIcon: Icon(
-                    Icons.home,
-                    size: 30,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  contentPadding: EdgeInsets.all(15),
+              validator: (gender) =>
+              gender != null && gender.isEmpty
+                  ? 'The age cannot be empty'
+                  : null,
+              onChanged: onChangedGender,
+            ),
+            const SizedBox(height: 15),
+            TextFormField(
+              initialValue: church,
+              decoration: const InputDecoration(
+                label: Text('Church'),
+                hintText: 'Enter Church',
+                prefixIcon: Icon(
+                  Icons.home,
+                  size: 30,
                 ),
-                validator: (gender) => gender != null && gender.isEmpty
-                    ? 'The gender cannot be empty'
-                    : null,
-                onChanged: onChangedChurch,
+                fillColor: Colors.white,
+                filled: true,
+                contentPadding: EdgeInsets.all(15),
               ),
-              const SizedBox(height: 15),
-              TextFormField(
-                initialValue: churchCity,
-                decoration: const InputDecoration(
-                  label: Text('Church City'),
-                  hintText: 'Enter Church City',
-                  prefixIcon: Icon(
-                    Icons.add_business,
-                    size: 30,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  contentPadding: EdgeInsets.all(15),
+              validator: (gender) =>
+              gender != null && gender.isEmpty
+                  ? 'The gender cannot be empty'
+                  : null,
+              onChanged: onChangedChurch,
+            ),
+            const SizedBox(height: 15),
+            TextFormField(
+              initialValue: churchCity,
+              decoration: const InputDecoration(
+                label: Text('Church City'),
+                hintText: 'Enter Church City',
+                prefixIcon: Icon(
+                  Icons.add_business,
+                  size: 30,
                 ),
-                validator: (churchCity) =>
-                    churchCity != null && churchCity.isEmpty
-                        ? 'The Church City cannot be empty'
-                        : null,
-                onChanged: onChangedChurchCity,
+                fillColor: Colors.white,
+                filled: true,
+                contentPadding: EdgeInsets.all(15),
               ),
-              const SizedBox(height: 15),
-              TextFormField(
-                initialValue: churchState,
-                decoration: const InputDecoration(
-                  label: Text('Church State'),
-                  hintText: 'Enter Church State',
-                  prefixIcon: Icon(
-                    Icons.refresh,
-                    size: 30,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  contentPadding: EdgeInsets.all(15),
+              validator: (churchCity) =>
+              churchCity != null && churchCity.isEmpty
+                  ? 'The Church City cannot be empty'
+                  : null,
+              onChanged: onChangedChurchCity,
+            ),
+            const SizedBox(height: 15),
+            TextFormField(
+              initialValue: churchState,
+              decoration: const InputDecoration(
+                label: Text('Church State'),
+                hintText: 'Enter Church State',
+                prefixIcon: Icon(
+                  Icons.refresh,
+                  size: 30,
                 ),
-                validator: (churchState) =>
-                    churchState != null && churchState.isEmpty
-                        ? 'The Church State cannot be empty'
-                        : null,
-                onChanged: onChangedChurchState,
+                fillColor: Colors.white,
+                filled: true,
+                contentPadding: EdgeInsets.all(15),
               ),
-              //SizedBox(height: 15,),
-            ],
-          ),
+              validator: (churchState) =>
+              churchState != null && churchState.isEmpty
+                  ? 'The Church State cannot be empty'
+                  : null,
+              onChanged: onChangedChurchState,
+            ),
+            //SizedBox(height: 15,),
+          ],
         ),
-      );
+      )
+
+    );
+  }
 }

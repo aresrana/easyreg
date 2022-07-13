@@ -40,8 +40,15 @@ class _AddEditUserPageState extends State<AddEditUserPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-      body: SingleChildScrollView(
+  Widget build(BuildContext context)
+    {
+      bool isIOS = Theme.of(context).platform== TargetPlatform.iOS;
+
+  return Scaffold(
+      body: isIOS
+      ?
+
+  SingleChildScrollView(
           padding: const EdgeInsets.only(top: 50.0),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -84,8 +91,77 @@ class _AddEditUserPageState extends State<AddEditUserPage> {
                 },
                 //color: Theme.of(context).primaryColor,
               )),
-            )
-          ])));
+            ),
+                const SizedBox(height: 25),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: SizedBox(
+                      height: 50.0,
+                      child: MaterialButton(
+                        color: Colors.white,
+                        child: const Text(
+                          'Get Back',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        //color: Theme.of(context).primaryColor,
+                      )),
+                ),
+          ]))
+          : SingleChildScrollView(
+          padding: const EdgeInsets.only(top: 50.0),
+          child:
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Form(
+              key: _formKey,
+              child: NoteFormWidget(
+                  name: name,
+                  age: age,
+                  gender: gender,
+                  church: church,
+                  churchCity: churchCity,
+                  churchState: churchState,
+                  onChangedName: (name) => this.name = name,
+                  onChangedAge: (age) => this.age = age,
+                  onChangedChurch: (church) => this.church = church,
+                  onChangedGender: (gender) => this.gender = gender,
+                  onChangedChurchCity: (churchCity) =>
+                  this.churchCity = churchCity,
+                  onChangedChurchState: (churchState) =>
+                  this.churchState = churchState),
+            ),
+            const SizedBox(height: 25),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: SizedBox(
+                  height: 50.0,
+                  child: MaterialButton(
+                    color: Colors.white,
+                    child: const Text(
+                      'Save Data',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    onPressed: () {
+                      addOrUpdateNote();
+                    },
+                    //color: Theme.of(context).primaryColor,
+                  )),
+            ),
+              ]))
+
+  );}
 
   void addOrUpdateNote() async {
     final isValid = _formKey.currentState!.validate();

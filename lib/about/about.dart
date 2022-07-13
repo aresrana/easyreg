@@ -12,7 +12,8 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
+    return SafeArea(child:
+      Scaffold (
       backgroundColor: Colors.white,
       body: ListView(
         padding: EdgeInsets.zero,
@@ -22,8 +23,7 @@ class _AboutState extends State<About> {
 
         buildContent()
 
-
-      ]));
+      ])));
 
   }
 
@@ -76,7 +76,7 @@ Widget buildCoverImage() => Container(
         SizedBox(
          height: 30
         ),
-        Text( "If you have any questions about the usage of app;modification as per the need; and want any custom build apps,please feel free to contact me",style: TextStyle(fontSize:16),textAlign: TextAlign.center,),
+        Text( "If you have any questions about the usage of app;modification as per the need; and want any custom built apps,please feel free to contact me",style: TextStyle(fontSize:16),textAlign: TextAlign.center,),
         SizedBox(
             height: 30
         ),
